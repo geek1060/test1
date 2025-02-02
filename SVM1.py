@@ -4,8 +4,8 @@ import requests
 app = Flask(__name__)
 
 # Define VM endpoints
-VM2_URL = "http://192.168.1.11:5001/fetch_data"  # Replace with actual VM2 IP
-VM3_URL = "http://192.168.1.12:5002/analyze_data"  # Replace with actual VM3 IP
+VM2_URL = "http://192.168.31.195:5001/fetch_data"  # Replace with actual VM2 IP
+VM3_URL = "http://192.168.31.151:5002/analyze_data"  # Replace with actual VM3 IP
 
 @app.route('/process', methods=['POST'])
 def process_request():
@@ -26,4 +26,4 @@ def process_request():
     return response.json()
 
 if __name__ == '__main__':
-    app.run(host='192.168.1.10', port=5000)
+    app.run(host='192.168.31.186', port=5000)
