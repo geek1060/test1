@@ -5,8 +5,8 @@ app = Flask(__name__)
 
 data_store = {}
 
-API_KEY = "1f69e59d985099f12f3e09f6c46b5e8e"  # Replace with your OpenWeatherMap API key
-BASE_URL = "https://api.openweathermap.org/data/2.5/weather"
+API_KEY = "67cdcff9e0394b0b87f153643253001"  # Replace with your OpenWeatherMap API key
+BASE_URL = "http://api.weatherapi.com/v1/current.json" & "http://api.weatherapi.com/v1//forecast.json"
 
 @app.route('/fetch_data', methods=['POST'])
 def fetch_data():
