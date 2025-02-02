@@ -36,4 +36,4 @@ def analyze_data():
     return jsonify({"message": "Analysis complete", "analysis": analysis})
 
 if __name__ == '__main__':
-    app.run(host='192.168.31.151', port=5000)
+    app.run(host='192.168.31.151', port=5002)
