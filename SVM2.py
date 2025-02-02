@@ -32,4 +32,4 @@ def fetch_data():
         return jsonify({"error": "Data for this city is not present"}), 404
 
 if __name__ == '__main__':
-    app.run(host='192.168.1.11', port=5000)
+    app.run(host='192.168.1.195', port=5000)
