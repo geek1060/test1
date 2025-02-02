@@ -3,7 +3,7 @@ import requests
 
 app = Flask(__name__)
 
-VM2_URL = "http://192.168.1.11:5000/fetch_data"  # Replace with actual VM2 IP
+VM2_URL = "http://192.168.31.195:5000/fetch_data"  # Replace with actual VM2 IP
 
 @app.route('/analyze_data', methods=['POST'])
 def analyze_data():
@@ -36,4 +36,4 @@ def analyze_data():
     return jsonify({"message": "Analysis complete", "analysis": analysis})
 
 if __name__ == '__main__':
-    app.run(host='192.168.1.12', port=5000)
+    app.run(host='192.168.1.151', port=5000)
