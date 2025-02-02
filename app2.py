@@ -33,5 +33,10 @@ def create_order():
     orders.append(order)
     return jsonify(order), 201
 
+# Add this new endpoint to retrieve all orders
+@app.route('/orders', methods=['GET'])
+def get_orders():
+    return jsonify(orders)
+
 if __name__ == '__main__':
     app.run(host='192.168.31.195', port=5001)
