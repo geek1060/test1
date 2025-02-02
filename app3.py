@@ -18,4 +18,4 @@ def get_user(user_id):
     return jsonify(user) if user else ("User not found", 404)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5003)
+    app.run(host='192.168.31.151', port=5002)
