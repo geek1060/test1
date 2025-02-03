@@ -5,8 +5,9 @@ app = Flask(__name__)
 
 data_store = {}
 
-key = "67cdcff9e0394b0b87f153643253001"  # Replace with your OpenWeatherMap API key
-BASE_URL = "http://api.weatherapi.com/v1/current.json" 
+# API Key stored in a variable
+API_KEY = "67cdcff9e0394b0b87f153643253001"
+BASE_URL = "https://api.weatherapi.com/v1/current.json"
 
 @app.route('/fetch_data', methods=['POST'])
 def fetch_data():
@@ -15,17 +16,18 @@ def fetch_data():
 
     if not city:
         return jsonify({"error": "City is required"}), 400
-
-    response = requests.get(BASE_URL, params={"q": city, "appid": API_KEY})
+    
+    # Making the API request
+    response = requests.get(BASE_URL, params={"q": city, "key": API_KEY, "lang": "En"})
     
     if response.status_code == 200:
         weather_data = response.json()
+        
         formatted_data = {
-            'city': weather_data['name'],
-            'temperature': weather_data['main']['temp'],
-            'description': weather_data['weather'][0]['description'],
-            'icon': weather_data['weather'][0]['icon']
+            "location": weather_data["location"],
+            "current": weather_data["current"]
         }
+        
         data_store[city] = formatted_data
         return jsonify({"message": "Data fetched and stored", "data": formatted_data})
     else:
