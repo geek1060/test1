@@ -25,5 +25,17 @@ def process_request():
 
     return response.json()
 
+@app.route('/process', methods=['POST'])
+def process():
+    try:
+        data = request.get_json()
+        city = data.get('city')
+        operation = data.get('operation')
+        # Your logic here
+        return jsonify({"status": "success"}), 200
+    except Exception as e:
+        print(f"Error: {e}")
+        return jsonify({"status": "error", "message": str(e)}), 500
+
 if __name__ == '__main__':
     app.run(host='192.168.31.186', port=5000)
