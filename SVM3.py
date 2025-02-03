@@ -3,7 +3,7 @@ import requests
 
 app = Flask(__name__)
 
-VM2_URL = "http://192.168.31.195:5000/fetch_data"  # Replace with actual VM2 IP
+VM2_URL = "http://192.168.31.195:5001/fetch_data"  # Replace with actual VM2 IP
 
 @app.route('/analyze_data', methods=['POST'])
 def analyze_data():
@@ -24,13 +24,13 @@ def analyze_data():
     if not weather_data:
         return jsonify({"error": "No data available"}), 404
 
-    temp_celsius = weather_data['temperature'] - 273.15  # Convert Kelvin to Celsius
+    temp_celsius = weather_data['current']['temp_c']  # Directly using Celsius from API
 
     analysis = {
         "city": city,
         "temperature_celsius": round(temp_celsius, 2),
-        "condition": weather_data['description'],
-        "icon": weather_data['icon']
+        "condition": weather_data['current']['condition']['text'],
+        "icon": weather_data['current']['condition']['icon']
     }
 
     return jsonify({"message": "Analysis complete", "analysis": analysis})
