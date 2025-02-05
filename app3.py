@@ -4,8 +4,8 @@ app = Flask(__name__)
 
 # Mock user database
 users = [
-    {"id": 1, "username": "alice", "email": "alice@example.com"},
-    {"id": 2, "username": "bob", "email": "bob@example.com"},
+    {"id": 1, "username": "shrey", "email": "shrey@mystore.com"},
+    {"id": 2, "username": "geek", "email": "geek@care.com"},
 ]
 
 @app.route('/users', methods=['GET'])
